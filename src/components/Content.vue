@@ -18,6 +18,7 @@ export default {
 <style>
     .book-content{
         overflow-y: auto;
+        overflow-x: hidden;
         position: absolute;
         top: 0;
         left: 0;
@@ -28,6 +29,7 @@ export default {
     .book-body{
         width: 100%;
         padding: 20px 25px;
+        box-sizing: border-box;
     }
     .fade-enter-active {
         transition: all .3s ease-in-out;
