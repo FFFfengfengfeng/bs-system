@@ -7,12 +7,12 @@ class Index extends Controller
 {
     public function index()
     {
-        $data = null;
-
-        $data = Db::query('select * from company');
-
-        $this->assign('data', $data);
-
+//        $data = null;
+//
+//        $data = Db::query('select * from company');
+//
+//        $this->assign('data', $data);
+//
         return $this->fetch();
     }
 }

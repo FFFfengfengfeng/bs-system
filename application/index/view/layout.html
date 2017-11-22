@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="__ROOT__/static/css/bootstrap.css">
+    <link rel="stylesheet" href="__ROOT__/static/css/main.css">
+</head>
+<body>
+    <div class="main">
+        <div class="main-sidebar">
+
+        </div>
+        <div class="main-body">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="javascript:;" class="navbar-brand navbar-expand-toggle">
+                            <span class="glyphicon glyphicon-align-justify"></span>
+                        </a>
+                        <span class="navbar-brand">后台管理系统</span>
+                    </div>
+                    <div class="navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="javascript">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="main-content">
+                {__CONTENT__}
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="__ROOT__/static/js/jquery-3.2.1.min.js"></script>
+    <script src="__ROOT__/static/js/bootstrap.js"></script>
+    <script>
+        $(function () {
+            $('.navbar-expand-toggle').on('click', function (e) {
+                console.log(1);
+                $('.main-sidebar').toggleClass('off');
+                $('.main-body').toggleClass('off');
+            })
+        });
+    </script>
+</body>
+</html>
