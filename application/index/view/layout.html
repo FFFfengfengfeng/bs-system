@@ -2,14 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>后台管理系统</title>
     <link rel="stylesheet" href="__ROOT__/static/css/bootstrap.css">
     <link rel="stylesheet" href="__ROOT__/static/css/main.css">
 </head>
 <body>
     <div class="main">
         <div class="main-sidebar">
+            <div class="main-logo">
 
+            </div>
+            <ul class="list-group" id="nav_sidebar">
+                <li class="list-group-item bg-success">
+                    <a href="{:url('company/index')}">
+                        <span class="glyphicon glyphicon-home"></span> 公司管理
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{:url('user/index')}">
+                        <span class="glyphicon glyphicon-user"></span> 到用户管理
+                    </a>
+                </li>
+            </ul>
         </div>
         <div class="main-body">
             <nav class="navbar navbar-default">
