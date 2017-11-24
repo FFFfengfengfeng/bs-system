@@ -8,6 +8,7 @@
 
 namespace app\index\controller;
 use think\Controller;
+use think\Db;
 
 class Login extends Controller
 {
@@ -18,6 +19,7 @@ class Login extends Controller
     }
     public function login()
     {
+        Db::query();
         $user_name     = $_POST['user_name'];
         $user_password = $_POST['user_name'];
 
