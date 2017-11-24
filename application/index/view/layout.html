@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <title>后台管理系统</title>
     <link rel="stylesheet" href="__ROOT__/static/css/bootstrap.css">
+    <link rel="stylesheet" href="__ROOT__/static/css/font-awesome.css">
     <link rel="stylesheet" href="__ROOT__/static/css/main.css">
 </head>
 <body>
     <div class="main">
-        <div class="main-sidebar">
+        <div class="main-sidebar bg-primary">
             <div class="main-logo">
-
+                <span class="fa fa-ravelry"></span> Admin
             </div>
             <ul class="list-group" id="nav_sidebar">
-                <li class="list-group-item bg-success">
-                    <a href="{:url('company/index')}">
-                        <span class="glyphicon glyphicon-home"></span> 公司管理
+                <li class="list-group-item">
+                    <a href="{:url('system/index')}">
+                        <span class="fa fa-cogs"></span> 系统管理
                     </a>
                 </li>
                 <li class="list-group-item">
                     <a href="{:url('user/index')}">
-                        <span class="glyphicon glyphicon-user"></span> 到用户管理
+                        <span class="fa fa-user-circle"></span> 用户管理
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{:url('user/index')}">
+                        <span class="fa fa-user-circle"></span> 4S店管理
                     </a>
                 </li>
             </ul>
@@ -30,7 +36,7 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a href="javascript:;" class="navbar-brand navbar-expand-toggle">
-                            <span class="glyphicon glyphicon-align-justify"></span>
+                            <span class="fa fa-bars"></span>
                         </a>
                         <span class="navbar-brand">后台管理系统</span>
                     </div>

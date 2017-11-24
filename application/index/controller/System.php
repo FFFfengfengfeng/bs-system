@@ -7,9 +7,8 @@
  */
 
 namespace app\index\controller;
-use think\Controller;
 
-class Company extends Controller
+class System extends Base
 {
     public function index()
     {
