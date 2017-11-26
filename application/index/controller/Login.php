@@ -19,10 +19,20 @@ class Login extends Controller
     }
     public function login()
     {
-        Db::query();
-        $user_name     = $_POST['user_name'];
-        $user_password = $_POST['user_name'];
+        $map['name'] = $_POST["user_name"];
+        $result = Db::table("admin") -> where($map) -> select();
+        $success = "0";
+        $message = "获取失败";
+        $data = null;
+        if (empty($result)) {
+            $message = "没有该用户";
+        } else if ($_POST["user_password"] != $result[0]["password"]) {
+            $message = "密码错误";
+        } else {
+            $data = $result[0]["id"];
+        }
+        $json = array("success" => $success, "message" => $message, "data" => $data);
 
-        echo json_encode(array("name" => $user_name, "password" => $user_password), JSON_UNESCAPED_UNICODE);
+        echo json_encode($json);
     }
 }
