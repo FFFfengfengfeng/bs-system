@@ -32,6 +32,7 @@
     </div>
     <script src="__ROOT__/static/js/jquery-3.2.1.min.js"></script>
     <script src="__ROOT__/static/js/bootstrap.js"></script>
+    <script src="__ROOT__/static/js/main.js"></script>
     <script>
         function isEmpty(str) {
             return (str === '') ? true : false;
@@ -53,7 +54,9 @@
                     dataType: 'json',
                     method: 'post',
                     success: function (res) {
-                        console.log(res.name);
+                        if (res.success === '1') {
+
+                        }
                     }
                 });
             }

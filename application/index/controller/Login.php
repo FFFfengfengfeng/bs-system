@@ -17,6 +17,11 @@ class Login extends Controller
         $this->view->engine->layout(false);
         return $this -> fetch('index');
     }
+//    public function response($array) {
+//        $json = json_encode($array);
+//
+//        return urldecode($json);
+//    }
     public function login()
     {
         $map['name'] = $_POST["user_name"];
@@ -30,9 +35,12 @@ class Login extends Controller
             $message = "密码错误";
         } else {
             $data = $result[0]["id"];
+            $success = "1";
+            $message = "获取成功";
         }
         $json = array("success" => $success, "message" => $message, "data" => $data);
 
-        echo json_encode($json);
+        return json($json);
+//        return $this -> response($json);
     }
 }
