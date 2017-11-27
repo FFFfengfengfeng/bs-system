@@ -2,9 +2,9 @@
  * ================================================================
  * 处理cookie
  * 序列化cookie
- * $.cookie(key)        读取cookie
- * $.cookie(key, value) 设置cookie
- * $.cookie(key, null)  删除cookie
+ * $.cookie(key)              读取cookie
+ * $.cookie(key, value, time) 设置cookie
+ * $.cookie(key, null)        删除cookie
  * ================================================================
  */
 + function (window, $) {
@@ -30,10 +30,11 @@
         return (_this.data[key] === undefined) ? false : true;
     }
 
-    Cookie.prototype.addCookie = function (key, value) {
-        var _this = this;
-
-        document.cookie = key + "=" + value;
+    Cookie.prototype.addCookie = function (key, value, time) {
+        var _this  = this,
+            exdate = new Date();
+        exdate.setDate(exdate.getDate() + time);
+        document.cookie = key + "=" + value + ";expires=" + exdate.toGMTString();
 
         _this.init();
     }
@@ -53,7 +54,7 @@
         _this.init();
     }
     $.extend({
-        cookie: function (key, value) {
+        cookie: function (key, value, time) {
             var cookie = new Cookie(key, value);
 
             if (value === undefined) {
@@ -62,7 +63,7 @@
                 cookie.removeCookie(key);
                 return null;
             } else {
-                cookie.addCookie(key, value);
+                cookie.addCookie(key, value, time);
                 return cookie.getCookie(key);
             }
         }

@@ -12,6 +12,11 @@ class System extends Base
 {
     public function index()
     {
+        $navActive = "navSystem";
+        $this -> assign([
+            "navActive" => $navActive
+        ]);
+
         return $this -> fetch();
     }
 }

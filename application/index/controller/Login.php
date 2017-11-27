@@ -8,6 +8,7 @@
 
 namespace app\index\controller;
 use think\Controller;
+use think\Cookie;
 use think\Db;
 
 class Login extends Controller
@@ -17,11 +18,6 @@ class Login extends Controller
         $this->view->engine->layout(false);
         return $this -> fetch('index');
     }
-//    public function response($array) {
-//        $json = json_encode($array);
-//
-//        return urldecode($json);
-//    }
     public function login()
     {
         $map['name'] = $_POST["user_name"];
@@ -37,10 +33,16 @@ class Login extends Controller
             $data = $result[0]["id"];
             $success = "1";
             $message = "获取成功";
+            Cookie::set('uid', $result[0]["id"], 3600);
         }
         $json = array("success" => $success, "message" => $message, "data" => $data);
 
         return json($json);
-//        return $this -> response($json);
+
+    }
+    public function out() {
+        Cookie::delete("uid");
+
+        $this -> redirect('index');
     }
 }

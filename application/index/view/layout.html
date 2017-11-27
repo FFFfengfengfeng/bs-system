@@ -14,17 +14,17 @@
                 <span class="fa fa-ravelry"></span> Admin
             </div>
             <ul class="list-group" id="nav_sidebar">
-                <li class="list-group-item">
+                <li class="list-group-item" id="navSystem">
                     <a href="{:url('system/index')}">
                         <span class="fa fa-cogs"></span> 系统管理
                     </a>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item" id="navUser">
                     <a href="{:url('user/index')}">
                         <span class="fa fa-user-circle"></span> 用户管理
                     </a>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item" id="nav4s">
                     <a href="{:url('user/index')}">
                         <span class="fa fa-user-circle"></span> 4S店管理
                     </a>
@@ -43,7 +43,7 @@
                     <div class="navbar-right">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="javascript">
+                                <a href="{:url('login/out')}">
                                     <span class="glyphicon glyphicon-remove"></span>
                                 </a>
                             </li>
@@ -64,11 +64,13 @@
     <script src="__ROOT__/static/js/main.js"></script>
     <script>
         $(function () {
+
+            $('#{$navActive}').addClass('active');
             $('.navbar-expand-toggle').on('click', function (e) {
                 console.log(1);
                 $('.main-sidebar').toggleClass('off');
                 $('.main-body').toggleClass('off');
-            })
+            });
         });
     </script>
 </body>

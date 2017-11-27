@@ -41,9 +41,11 @@ body,html{
     padding-left: 20px;
     transition: all .25s;
 }
+.main-sidebar .list-group-item.active,
 .main-sidebar .list-group-item:hover{
     background-color: #212338;
 }
+.main-sidebar .list-group-item.active a,
 .main-sidebar .list-group-item:hover a{
     color: #FFFFFF;
 }

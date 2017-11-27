@@ -8,13 +8,12 @@
 
 namespace app\index\controller;
 
+use think\Cookie;
+
 class Index extends Base
 {
     public function index()
     {
-        $cookie = $_COOKIE;
-        $this->assign($cookie);
-
-        return $this -> fetch();
+        return $this -> redirect("system/index");
     }
 }

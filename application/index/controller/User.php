@@ -12,6 +12,11 @@ class User extends Base
 {
     public function index()
     {
+        $navActive = "navUser";
+        $this -> assign([
+            "navActive" => $navActive
+        ]);
+
         return $this -> fetch();
     }
 }

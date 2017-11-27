@@ -8,19 +8,17 @@
 
 namespace app\index\controller;
 use think\Controller;
+use think\Cookie;
 
 class Base extends Controller
 {
     public function _initialize()
     {
-//        $result = [];
-//        foreach ($_COOKIE as $key) {
-//            array_push($result, $key);
-//        }
-//        print_r($_COOKIE) ;
-//        if (!isset($_COOKIE['uid'])) {
-//            $this -> error('请登录', url('Login/index'), 3);
-//        }
+        $uid = Cookie::get("uid");
+
+        if (!isset($uid)) {
+            $this -> error('请登录', url('Login/index'), 3);
+        }
         return json($_COOKIE);
     }
 }
