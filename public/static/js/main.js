@@ -73,6 +73,9 @@
 /*
  * ================================================================
  * toast提示框
+ * @param {type}     String 提示类型 'success' || 'error'
+ * @param {message}  String 提示信息
+ * @param {duration} Number 停留时长
  * ================================================================
  */
 + function (window, $) {
