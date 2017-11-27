@@ -55,9 +55,25 @@
                     method: 'post',
                     success: function (res) {
                         if (res.success === '1') {
-
+                            $.cookie('uid', res.data);
+                            window.location.href = "{:url('index/index')}";
+                        } else {
+                            $.toast({
+                                type: 'error',
+                                message: res.message
+                            });
                         }
                     }
+                });
+            } else if (isEmpty(user_name)) {
+                $.toast({
+                    type: 'error',
+                    message: '请输入姓名'
+                });
+            } else {
+                $.toast({
+                    type: 'error',
+                    message: '请输入密码'
                 });
             }
         })

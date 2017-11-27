@@ -100,17 +100,58 @@
     }
     
     Toast.prototype.init = function () {
-        
+        var _this = this;
+
+        _this.$body = $('body');
+        _this.createDOM();
     }
 
     Toast.prototype.createDOM = function () {
         var _this   = this,
             options = _this.options,
             type    = options.type,
-            message = options.message;
+            message = options.message,
+            $body   = $('body');
 
         _this.$toast = $('<div class="toast ' + type + ' clearfix"><p >' + message + '</p><a href="javascript:;" class="fa fa-close"></a></div>');
+
+        _this.$body.append(_this.$toast);
     }
 
+    Toast.prototype.show = function () {
+        var _this = this;
 
+        _this.$toast.addClass('show in');
+    }
+
+    Toast.prototype.hide = function () {
+        var _this    = this,
+            options  = _this.options,
+            duration = options.duration;
+
+        _this.$toast.removeClass('show in');
+
+        setTimeout(function () {
+            _this.remove();
+        }, duration);
+    }
+
+    Toast.prototype.remove = function () {
+        var _this = this;
+
+        _this.$toast.remove();
+    }
+    $.extend({
+        toast: function (options) {
+            var toast = new Toast(options);
+
+            toast.show();
+
+            var duration = options.duration || 1000;
+
+            setTimeout(function () {
+                toast.hide();
+            }, duration);
+        }
+    });
 }(window, jQuery);

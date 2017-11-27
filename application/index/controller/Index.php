@@ -12,6 +12,9 @@ class Index extends Base
 {
     public function index()
     {
+        $cookie = $_COOKIE;
+        $this->assign($cookie);
+
         return $this -> fetch();
     }
 }
