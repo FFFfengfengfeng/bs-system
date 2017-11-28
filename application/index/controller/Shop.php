@@ -2,18 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2017/11/24 0024
- * Time: 上午 1:35
+ * Date: 2017-11-28
+ * Time: 14:52
  */
 
 namespace app\index\controller;
 
-use think\Cookie;
 
-class Index extends Base
+class Shop extends Base
 {
     public function index()
     {
-        return $this -> redirect("user/index");
+        return $this->fetch();
     }
 }

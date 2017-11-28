@@ -55,7 +55,7 @@
                     method: 'post',
                     success: function (res) {
                         if (res.success === '1') {
-                            window.location.href = "{:url('system/index')}";
+                            window.location.href = "{:url('/index')}";
                         } else {
                             $.toast({
                                 type: 'error',

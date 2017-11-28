@@ -34,7 +34,7 @@ body,html{
     background-color: #363A5C;
     border: 0;
     cursor: pointer;
-    overflow: hidden;
+    /*overflow-x: hidden;*/
     height: 60px;
     line-height: 60px;
     padding: 0 15px;
