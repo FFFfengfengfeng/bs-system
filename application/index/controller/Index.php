@@ -14,6 +14,13 @@ class Index extends Base
 {
     public function index()
     {
-        return $this -> redirect("user/index");
+        $navActive = "";
+        $isIn      = "";
+        $this -> assign([
+            "navActive" => $navActive,
+            "isIn"      => $isIn
+        ]);
+
+        return $this -> fetch();
     }
 }

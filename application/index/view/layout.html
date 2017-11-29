@@ -13,30 +13,102 @@
             <div class="main-logo">
                 <span class="fa fa-ravelry"></span> Admin
             </div>
-            <ul class="list-group" id="nav_sidebar">
-                <li class="list-group-item" id="navSystem">
-                    <a href="javascript:;">
+            <div class="nav-sidebar panel-group" id="navSidebar">
+                <div class="nav-sidebar-item panel">
+                    <a href="#panelSystem" class="nav-sidebar-link" data-toggle="collapse" data-parent="#navSidebar">
                         <span class="fa fa-cogs"></span> 系统管理
                     </a>
-                    <ul class="list-group">
-                        <li>
-                            <a href="{:url('user/index')}">
-                                <span class="fa fa-cogs"></span> 用户管理
+                    <ul class="list-group collapse" id="panelSystem">
+                        <li class="list-group-item" id="navUser">
+                            <a href="javascript:;">
+                                <span class="fa fa-users"></span> 用户管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="nav4S">
+                            <a href="javascript:;">
+                                <span class="fa fa-cubes"></span> 4S店管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navBank">
+                            <a href="javascript:;">
+                                <span class="fa fa-bank"></span> 银行管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navRegulatory">
+                            <a href="javascript:;">
+                                <span class="fa fa-sitemap"></span> 监管组管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navSale">
+                            <a href="javascript:;">
+                                <span class="fa fa-line-chart"></span> 销售公司管理
                             </a>
                         </li>
                     </ul>
-                </li>
-                <!--<li class="list-group-item" id="navUser">-->
-                    <!--<a href="{:url('user/index')}">-->
-                        <!--<span class="fa fa-user-circle"></span> 用户管理-->
-                    <!--</a>-->
-                <!--</li>-->
-                <!--<li class="list-group-item" id="nav4s">-->
-                    <!--<a href="{:url('user/index')}">-->
-                        <!--<span class="fa fa-user-circle"></span> 4S店管理-->
-                    <!--</a>-->
-                <!--</li>-->
-            </ul>
+                </div>
+                <div class="nav-sidebar-item panel">
+                    <a href="#panelBusiness" class="nav-sidebar-link" data-toggle="collapse" data-parent="#navSidebar">
+                        <span class="fa fa-shopping-bag"></span> 业务管理
+                    </a>
+                    <ul class="list-group collapse" id="panelBusiness">
+                        <li class="list-group-item" id="">
+                            <a href="javascript:;">
+                                <span class="fa fa-calendar-check-o"></span> 订货计划管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="">
+                            <a href="javascript:;">
+                                <span class="fa fa-pencil-square-o"></span> 银行审核管理
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-sidebar-item panel">
+                    <a href="#panelCar" class="nav-sidebar-link" data-toggle="collapse" data-parent="#navSidebar">
+                        <span class="fa fa-exchange"></span> 接车发车管理
+                    </a>
+                    <ul class="list-group collapse" id="panelCar">
+                        <li class="list-group-item" id="">
+                            <a href="javascript:;">
+                                <span class="fa fa-truck"></span> 发车管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="">
+                            <a href="javascript:;">
+                                <span class="fa fa-car"></span> 接车管理
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-sidebar-item panel">
+                    <a href="#panelCard" class="nav-sidebar-link" data-toggle="collapse" data-parent="#navSidebar">
+                        <span class="fa fa-drivers-license-o"></span> 车证管理
+                    </a>
+                    <ul class="list-group collapse" id="panelCard">
+                        <li class="list-group-item" id="">
+                            <a href="javascript:;">
+                                <span class="fa fa-edit"></span> 4S店放证申请
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="">
+                            <a href="javascript:;">
+                                <span class="fa fa-folder-open"></span> 银行放证审核
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="">
+                            <a href="javascript:;">
+                                <span class="fa fa-send"></span> 监管组放证
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="">
+                            <a href="javascript:;">
+                                <span class="fa fa-calendar-check-o"></span> 4S店收证确认
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
         <div class="main-body">
             <nav class="navbar navbar-default">
@@ -72,7 +144,8 @@
     <script>
         $(function () {
 
-            $('#{$navActive}').addClass('active');
+//            $('#{$navActive}').addClass('active');
+
             $('.navbar-expand-toggle').on('click', function (e) {
                 console.log(1);
                 $('.main-sidebar').toggleClass('off');

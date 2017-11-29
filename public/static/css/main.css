@@ -4,7 +4,14 @@ body,html{
     font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
     overflow-x: hidden;
 }
-
+a,
+a:active,
+a:focus,
+a:hover,
+a:visited{
+    text-decoration: none;
+    color: inherit;
+}
 .main{
     height: 100%;
     width: 100%;
@@ -34,12 +41,16 @@ body,html{
     background-color: #363A5C;
     border: 0;
     cursor: pointer;
-    /*overflow-x: hidden;*/
+    overflow: hidden;
     height: 60px;
     line-height: 60px;
     padding: 0 15px;
-    padding-left: 20px;
+    padding-left: 22px;
     transition: all .25s;
+}
+.main-sidebar .panel{
+    background-color: #363A5C;
+    border: none;
 }
 .main-sidebar .list-group-item.active,
 .main-sidebar .list-group-item:hover{
@@ -60,13 +71,31 @@ body,html{
 .main-sidebar .list-group-item a:hover{
     text-decoration: none;
 }
+.nav-sidebar-link{
+    height: 60px;
+    line-height: 60px;
+    padding: 0 15px;
+    padding-left: 22px;
+    transition: all .25s;
+    display: block;
+    color: #FFFFFF;
+    overflow: hidden;
+}
+.nav-sidebar-link:active,
+.nav-sidebar-link:visited,
+.nav-sidebar-link:focus,
+.nav-sidebar-link:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+}
 .main-logo{
     height: 50px;
     width: 100%;
     background-color: #761c19;
     line-height: 50px;
     font-size: 18px;
-    padding-left: 15px;
+    padding-left: 17px;
+    overflow: hidden;
 }
 .main-body{
     padding-left: 200px;
