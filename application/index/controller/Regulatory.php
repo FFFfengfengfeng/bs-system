@@ -2,13 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2017/11/24 0024
- * Time: 上午 1:31
+ * Date: 2017-11-29
+ * Time: 17:48
  */
 
 namespace app\index\controller;
 
-class User extends Base
+
+class Regulatory extends Base
 {
     public function index()
     {

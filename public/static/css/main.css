@@ -1,7 +1,7 @@
 body,html{
     height: 100%;
     width: 100%;
-    font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', Arial, sans-serif;
     overflow-x: hidden;
 }
 a,
@@ -11,6 +11,9 @@ a:hover,
 a:visited{
     text-decoration: none;
     color: inherit;
+}
+.bg-default{
+    background-color: #f7f7f9;
 }
 .main{
     height: 100%;

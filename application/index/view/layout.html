@@ -11,7 +11,9 @@
     <div class="main">
         <div class="main-sidebar bg-primary">
             <div class="main-logo">
-                <span class="fa fa-ravelry"></span> Admin
+                <a href="{:url('index/index')}">
+                    <span class="fa fa-ravelry"></span> Admin
+                </a>
             </div>
             <div class="nav-sidebar panel-group" id="navSidebar">
                 <div class="nav-sidebar-item panel">
@@ -20,27 +22,27 @@
                     </a>
                     <ul class="list-group collapse" id="panelSystem">
                         <li class="list-group-item" id="navUser">
-                            <a href="javascript:;">
-                                <span class="fa fa-users"></span> 用户管理
-                            </a>
+                        <a href="{:url('user/index')}">
+                            <span class="fa fa-users"></span> 用户管理
+                        </a>
                         </li>
                         <li class="list-group-item" id="nav4S">
-                            <a href="javascript:;">
+                            <a href="{:url('shop/index')}">
                                 <span class="fa fa-cubes"></span> 4S店管理
                             </a>
                         </li>
                         <li class="list-group-item" id="navBank">
-                            <a href="javascript:;">
+                            <a href="{:url('bank/index')}">
                                 <span class="fa fa-bank"></span> 银行管理
                             </a>
                         </li>
                         <li class="list-group-item" id="navRegulatory">
-                            <a href="javascript:;">
+                            <a href="{:url('regulatory/index')}">
                                 <span class="fa fa-sitemap"></span> 监管组管理
                             </a>
                         </li>
                         <li class="list-group-item" id="navSale">
-                            <a href="javascript:;">
+                            <a href="{:url('sale/index')}">
                                 <span class="fa fa-line-chart"></span> 销售公司管理
                             </a>
                         </li>
@@ -136,18 +138,19 @@
         </div>
     </div>
 
-
-
     <script src="__ROOT__/static/js/jquery-3.2.1.min.js"></script>
     <script src="__ROOT__/static/js/bootstrap.js"></script>
     <script src="__ROOT__/static/js/main.js"></script>
     <script>
         $(function () {
-
-//            $('#{$navActive}').addClass('active');
+            $('.list-group-item').each(function () {
+                if ($(this).find('a').attr('href') === '{$Request.root}/{$Request.path}' + '.html') {
+                    $(this).addClass('active');
+                    $(this).parent().addClass('in');
+                }
+            })
 
             $('.navbar-expand-toggle').on('click', function (e) {
-                console.log(1);
                 $('.main-sidebar').toggleClass('off');
                 $('.main-body').toggleClass('off');
             });

@@ -14,13 +14,6 @@ class Index extends Base
 {
     public function index()
     {
-        $navActive = "";
-        $isIn      = "";
-        $this -> assign([
-            "navActive" => $navActive,
-            "isIn"      => $isIn
-        ]);
-
         return $this -> fetch();
     }
 }
