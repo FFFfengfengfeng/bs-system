@@ -22,11 +22,11 @@
                     </a>
                     <ul class="list-group collapse" id="panelSystem">
                         <li class="list-group-item" id="navUser">
-                        <a href="{:url('user/index')}">
-                            <span class="fa fa-users"></span> 用户管理
-                        </a>
+                            <a href="{:url('user/index')}">
+                                <span class="fa fa-users"></span> 用户管理
+                            </a>
                         </li>
-                        <li class="list-group-item" id="nav4S">
+                        <li class="list-group-item" id="navShop">
                             <a href="{:url('shop/index')}">
                                 <span class="fa fa-cubes"></span> 4S店管理
                             </a>
@@ -142,17 +142,15 @@
     <script src="__ROOT__/static/js/bootstrap.js"></script>
     <script src="__ROOT__/static/js/main.js"></script>
     <script>
+        console.log('{$Request.controller}');
         $(function () {
-            $('.list-group-item').each(function () {
-                if ($(this).find('a').attr('href') === '{$Request.root}/{$Request.path}' + '.html') {
-                    $(this).addClass('active');
-                    $(this).parent().addClass('in');
-                }
-            })
+            $('#nav{$Request.controller}').addClass('active');
+            $('#nav{$Request.controller}').parent().addClass('in');
 
             $('.navbar-expand-toggle').on('click', function (e) {
                 $('.main-sidebar').toggleClass('off');
                 $('.main-body').toggleClass('off');
+                $('.main .navbar').toggleClass('off');
             });
         });
     </script>

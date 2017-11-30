@@ -112,11 +112,35 @@ a:visited{
 }
 .main-content{
     padding: 15px;
+    padding-top: 70px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.main-content .panel-title{
+    line-height: 34px;
+}
+.main-form{
+    width: 350px;
+    padding: 30px 0 0 50px;
+}
+.main-form .btn-group{
+    margin-top: 30px;
+}
+.main-form .btn-group .btn{
+    color: #FFF;
 }
 .main .navbar{
     height: 50px;
     border-radius: 0;
     margin-bottom: 0;
+    position: fixed;
+    left: 200px;
+    right: 0;
+    top: 0;
+    transition: all .25s;
+}
+.main .navbar.off{
+    left: 60px;
 }
 .login{
     width: 100%;
@@ -198,4 +222,13 @@ a:visited{
     background-color: #dff0d8;
     border-color: #5cb85c;
     color: #3c763d;
+}
+.td-operation{
+    max-width: 100px;
+}
+.td-operation .btn{
+    margin: 5px;
+}
+.pagination{
+    float: right;
 }

@@ -7,69 +7,69 @@
  * $.cookie(key, null)        删除cookie
  * ================================================================
  */
-+ function (window, $) {
-    'use strict';
+    + function (window, $) {
+        'use strict';
 
-    function Cookie(key, value) {
-        this.data = {};
-        this.init();
-    }
-    Cookie.prototype.init = function () {
-        var _this      = this,
-            cookie     = document.cookie,
-            arr        = cookie.split('; ');
-
-        for (var i = 0; i < arr.length; i ++) {
-            _this.data[arr[i].split('=')[0]] = arr[i].split('=')[1];
+        function Cookie(key, value) {
+            this.data = {};
+            this.init();
         }
-    }
+        Cookie.prototype.init = function () {
+            var _this      = this,
+                cookie     = document.cookie,
+                arr        = cookie.split('; ');
 
-    Cookie.prototype.hasCookie = function (key) {
-        var _this = this;
-
-        return (_this.data[key] === undefined) ? false : true;
-    }
-
-    Cookie.prototype.addCookie = function (key, value, time) {
-        var _this  = this,
-            exdate = new Date();
-        exdate.setDate(exdate.getDate() + time);
-        document.cookie = key + "=" + value + ";expires=" + exdate.toGMTString();
-
-        _this.init();
-    }
-
-    Cookie.prototype.getCookie = function (key) {
-        var _this = this;
-
-        return _this.hasCookie(key) ? _this.data[key] : null;
-    }
-
-    Cookie.prototype.removeCookie = function (key) {
-        var _this = this;
-
-        if (_this.hasCookie(key)) {
-            document.cookie = key + "=" + '';
-        }
-        _this.init();
-    }
-    $.extend({
-        cookie: function (key, value, time) {
-            var cookie = new Cookie(key, value);
-
-            if (value === undefined) {
-                return cookie.getCookie(key);
-            } else if (value === null){
-                cookie.removeCookie(key);
-                return null;
-            } else {
-                cookie.addCookie(key, value, time);
-                return cookie.getCookie(key);
+            for (var i = 0; i < arr.length; i ++) {
+                _this.data[arr[i].split('=')[0]] = arr[i].split('=')[1];
             }
         }
-    });
 
-}(window, jQuery);
+        Cookie.prototype.hasCookie = function (key) {
+            var _this = this;
+
+            return (_this.data[key] === undefined) ? false : true;
+        }
+
+        Cookie.prototype.addCookie = function (key, value, time) {
+            var _this  = this,
+                exdate = new Date();
+            exdate.setDate(exdate.getDate() + time);
+            document.cookie = key + "=" + value + ";expires=" + exdate.toGMTString();
+
+            _this.init();
+        }
+
+        Cookie.prototype.getCookie = function (key) {
+            var _this = this;
+
+            return _this.hasCookie(key) ? _this.data[key] : null;
+        }
+
+        Cookie.prototype.removeCookie = function (key) {
+            var _this = this;
+
+            if (_this.hasCookie(key)) {
+                document.cookie = key + "=" + '';
+            }
+            _this.init();
+        }
+        $.extend({
+            cookie: function (key, value, time) {
+                var cookie = new Cookie(key, value);
+
+                if (value === undefined) {
+                    return cookie.getCookie(key);
+                } else if (value === null){
+                    cookie.removeCookie(key);
+                    return null;
+                } else {
+                    cookie.addCookie(key, value, time);
+                    return cookie.getCookie(key);
+                }
+            }
+        });
+
+    }(window, jQuery);
 
 /*
  * ================================================================
@@ -99,7 +99,7 @@
         this.options = $.extend(defaults, options || {});
         this.init();
     }
-    
+
     Toast.prototype.init = function () {
         var _this = this;
 
@@ -156,3 +156,70 @@
         }
     });
 }(window, jQuery);
+
+/*
+ * ================================================================
+ * delete方法
+ * ================================================================
+ */
+$(function () {
+    $('body').on('click', '.btn-delete', function (e) {
+        var $this = $(this),
+            url   = $this.attr('data-url'),
+            id    = $this.attr('data-id');
+        console.log(url, id);
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            data: {
+                id: id
+            },
+            success: function (res) {
+                if (res.success === '1') {
+                    $.toast({
+                        type: 'success',
+                        message: res.message
+                    });
+                    $('.tr-content[data-id=' + res.id + ']').remove();
+                } else {
+                    $.toast({
+                        type: 'error',
+                        message: res.message
+                    });
+                }
+            }
+        });
+    })
+});
+/*
+ * ================================================================
+ * add方法
+ * ================================================================
+ */
+$(function () {
+    $('body').on('click', '.btn-add', function (e) {
+        var $this    = $(this),
+            url      = $this.attr('data-url'),
+            form     = $this.attr('data-form'),
+            formData = $('#' + form).serialize();
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            data: formData,
+            success: function (res) {
+                // if (res.success === '1') {
+                //     $.toast({
+                //         type: 'success',
+                //         message: res.message
+                //     });
+                //     $('.tr-content[data-id=' + res.id + ']').remove();
+                // } else {
+                //     $.toast({
+                //         type: 'error',
+                //         message: res.message
+                //     });
+                // }
+            }
+        });
+    })
+});
