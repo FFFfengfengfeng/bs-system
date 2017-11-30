@@ -35,7 +35,7 @@
                 <a href="javascript:;" data-id="{$i.id}" data-url="{:url('user/delete')}" class="btn btn-default btn-delete">
                     <span class="fa fa-trash-o"></span> 删除
                 </a>
-                <a href="{$i.id}" class="btn btn-default">
+                <a href="{:url('user/edit', ['id' => $i['id']])}" class="btn btn-default">
                     <span class="fa fa-pencil"></span> 修改
                 </a>
             </td>

@@ -61,7 +61,6 @@ class User extends Base
             if ($data == 1) {
                 $success = "1";
                 $message = "添加成功";
-
             }
             $json = array("success" => $success, "message" => $message);
             
@@ -69,8 +68,30 @@ class User extends Base
         }
 
     }
-    public function insert()
+    public function edit($id)
     {
+        $data = Db::table('user') -> where('id','=',$id) -> select()[0];
+        $this -> assign("data", $data);
 
+        return $this -> fetch('edit');
+    }
+    public function update()
+    {
+        $success = "0";
+        $message = "修改失败";
+
+        $data = Db::table('user') -> where("id", "=", $_REQUEST["id"]) -> update([
+            'login_name' => $_REQUEST["login_name"],
+            'user_name'  => $_REQUEST["user_name"],
+            'type'       => $_REQUEST["type"],
+            'phone'      => $_REQUEST["phone"],
+        ]);
+        if ($data == 1) {
+            $success = "1";
+            $message = "添加成功";
+        }
+        $json = array("success" => $success, "message" => $message);
+
+        return json($json);
     }
 }

@@ -201,24 +201,60 @@ $(function () {
         var $this    = $(this),
             url      = $this.attr('data-url'),
             form     = $this.attr('data-form'),
+            redirect = $this.attr('data-redirect'),
             formData = $('#' + form).serialize();
         $.ajax({
             url: url,
             dataType: 'json',
             data: formData,
             success: function (res) {
-                // if (res.success === '1') {
-                //     $.toast({
-                //         type: 'success',
-                //         message: res.message
-                //     });
-                //     $('.tr-content[data-id=' + res.id + ']').remove();
-                // } else {
-                //     $.toast({
-                //         type: 'error',
-                //         message: res.message
-                //     });
-                // }
+                if (res.success === '1') {
+                    $.toast({
+                        type: 'success',
+                        message: res.message
+                    });
+                    window.location.href = redirect;
+                } else {
+                    $.toast({
+                        type: 'error',
+                        message: res.message
+                    });
+                }
+            }
+        });
+    })
+});
+/*
+ * ================================================================
+ * edit方法
+ * ================================================================
+ */
+$(function () {
+    $('body').on('click', '.btn-edit', function (e) {
+        var $this    = $(this),
+            id       = $this.attr('data-id'),
+            url      = $this.attr('data-url'),
+            form     = $this.attr('data-form'),
+            redirect = $this.attr('data-redirect'),
+            formData = $('#' + form).serialize();
+        formData += ('&id=' + id);
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            data: formData,
+            success: function (res) {
+                if (res.success === '1') {
+                    $.toast({
+                        type: 'success',
+                        message: res.message
+                    });
+                    window.location.href = redirect;
+                } else {
+                    $.toast({
+                        type: 'error',
+                        message: res.message
+                    });
+                }
             }
         });
     })
