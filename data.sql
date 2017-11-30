@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : FFF
+Source Server         : project
 Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : data
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-11-30 19:14:42
+Date: 2017-12-01 02:10:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -61,7 +61,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -69,4 +69,5 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', '0', 'admin', 'admin', '123456', '13800138000');
 INSERT INTO `user` VALUES ('2', '1', 'abc123', '王小明', '123456', '13800138001');
 INSERT INTO `user` VALUES ('3', '2', 'abc456', '张小红', '123456', '13800138002');
-INSERT INTO `user` VALUES ('13', '1', '11', '22', '22', '22');
+INSERT INTO `user` VALUES ('19', '2', 'abc789', '张大明', '22', '13800138002');
+INSERT INTO `user` VALUES ('26', '1', '12', '33', '33', '22');
