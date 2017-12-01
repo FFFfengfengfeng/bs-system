@@ -64,7 +64,7 @@ class User extends Base
 
             }
             $json = array("success" => $success, "message" => $message);
-            
+
             return json($json);
         }
 
