@@ -269,3 +269,15 @@ $(function () {
 
     });
 });
+/*
+ * ================================================================
+ * select
+ * ================================================================
+ */
+$(function () {
+    $('.form-select').on('change', function (e) {
+        var val = $(this).val();
+        var content = $(this).find('option[value=' + val + ']').html();
+        $(this).next('.form-select-content').val(content);
+    })
+});
