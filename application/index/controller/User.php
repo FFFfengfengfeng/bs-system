@@ -32,7 +32,7 @@ class User extends Base
         $success = "0";
         $message = "删除失败";
         if (!empty($id)) {
-            $data = Db::table('user')->delete($id);
+            $data = Db::table('user') -> delete($id);
 
             if ($data == 1) {
                 $success = "1";
