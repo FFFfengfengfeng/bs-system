@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : FFF
+Source Server         : project
 Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : data
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-01 19:37:32
+Date: 2017-12-04 01:36:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -72,7 +72,7 @@ CREATE TABLE `car` (
   `bank_id` int(11) NOT NULL,
   `bank_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of car
@@ -85,6 +85,36 @@ INSERT INTO `car` VALUES ('18', 'C级', 'AB00201005', '10', '32', '2017-12-07 14
 INSERT INTO `car` VALUES ('20', 'RX', 'AB00201006', '20', '45', '2017-12-07 19:55:00', '', '永佳丰田', '1', '', '0', '0', '');
 
 -- ----------------------------
+-- Table structure for order
+-- ----------------------------
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `car_code` varchar(255) NOT NULL,
+  `modal` varchar(255) NOT NULL,
+  `car_num` int(11) NOT NULL,
+  `car_price` decimal(10,0) NOT NULL,
+  `car_total` varchar(255) NOT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `create_time` varchar(255) NOT NULL,
+  `shop_id` int(11) NOT NULL,
+  `regulatory_id` int(11) NOT NULL,
+  `bank_id` int(11) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `shop_name` varchar(255) NOT NULL,
+  `bank_name` varchar(255) NOT NULL,
+  `regulatory_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of order
+-- ----------------------------
+INSERT INTO `order` VALUES ('4', 'AB00201007', '雷凌', '14', '15', '210', '', '', '2', '2', '5', '2', '诚立丰田', '农业银行', '哈哈第三方监管有限公司');
+INSERT INTO `order` VALUES ('5', 'AB00201008', 'S级', '2', '140', '280', '', '', '3', '4', '5', '0', '广州中升奔驰店', '农业银行', '快捷第三方监管有限公司');
+INSERT INTO `order` VALUES ('6', 'AB00201009', 'LX', '3', '140', '420', '', '2017-12-05 15:55', '1', '2', '1', '0', '永佳丰田', '工商银行', '哈哈第三方监管有限公司');
+
+-- ----------------------------
 -- Table structure for regulatory
 -- ----------------------------
 DROP TABLE IF EXISTS `regulatory`;
@@ -95,7 +125,7 @@ CREATE TABLE `regulatory` (
   `address` varchar(255) NOT NULL,
   `business_num` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of regulatory

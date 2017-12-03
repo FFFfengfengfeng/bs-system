@@ -1,62 +1,65 @@
 <div>
     <form class="main-form" id="addOrder">
         <div class="form-group">
-            <label for="loginName">车辆型号</label>
-            <input type="text" name="login_name" class="form-control" id="loginName" placeholder="请输入型号">
+            <label for="modal">车辆型号</label>
+            <input type="text" name="modal" class="form-control" id="modal" placeholder="请输入型号">
         </div>
         <div class="form-group">
-            <label for="userName">产品代码</label>
-            <input type="text" name="user_name"  class="form-control" id="userName" placeholder="请输入产品代码">
+            <label for="carCode">产品代码</label>
+            <input type="text" name="car_code"  class="form-control" id="carCode" placeholder="请输入产品代码">
         </div>
         <div class="form-group">
-            <label for="userName">数量</label>
-            <input type="text" name="user_name"  class="form-control" id="userName" placeholder="请输入数量">
+            <label for="carNum">数量</label>
+            <input type="text" name="car_num"  class="form-control" id="carNum" placeholder="请输入数量">
         </div>
         <div class="form-group">
-            <label for="userName">单价</label>
-            <input type="text" name="user_name"  class="form-control" id="userName" placeholder="请输入单价">
+            <label for="carPrice">单价(万元)</label>
+            <input type="text" name="car_price"  class="form-control" id="carPrice" placeholder="请输入单价">
         </div>
         <div class="form-group">
-            <label for="userName">金额</label>
-            <input type="text" name="user_name"  class="form-control" id="userName" placeholder="请输入金额">
+            <label for="carTotal">金额(万元)</label>
+            <input type="text" name="car_total"  class="form-control" id="carTotal" placeholder="请输入金额">
         </div>
         <div class="form-group">
-            <label for="userName">备注</label>
-            <input type="text" name="user_name"  class="form-control" id="userName" placeholder="请输入备注">
+            <label for="remark">备注</label>
+            <input type="text" name="remark"  class="form-control" id="remark" placeholder="请输入备注">
         </div>
         <div class="form-group">
             <label for="createTime">录入时间</label>
             <input type="text" readonly name="create_time" data-date-format="yyyy-mm-dd hh:ii" class="form-control data-picker" id="createTime" placeholder="请选择录入时间">
         </div>
         <div class="form-group">
-            <label for="regulatory_id">4S店</label>
-            <select class="form-control" name="regulatory_id" id="regulatory_id">
-                <option value="0">监管组1</option>
-                <option value="1">监管组2</option>
-                <option value="2">监管组3</option>
+            <label for="shop_id">4S店</label>
+            <select class="form-control" name="shop_id" id="shop_id">
+                {foreach name="shop" item="i"}
+                <option value="{$i.id}">{$i.shop_name}</option>
+                {/foreach}
             </select>
         </div>
         <div class="form-group">
             <label for="regulatory_id">监管组</label>
             <select class="form-control" name="regulatory_id" id="regulatory_id">
-                <option value="0">监管组1</option>
-                <option value="1">监管组2</option>
-                <option value="2">监管组3</option>
+                {foreach name="regulatory" item="i"}
+                <option value="{$i.id}">{$i.name}</option>
+                {/foreach}
             </select>
         </div>
         <div class="form-group">
-            <label for="regulatory_id">银行</label>
-            <select class="form-control" name="regulatory_id" id="regulatory_id">
-                <option value="0">监管组1</option>
-                <option value="1">监管组2</option>
-                <option value="2">监管组3</option>
+            <label for="bank_id">银行</label>
+            <select class="form-control" name="bank_id" id="bank_id">
+                {foreach name="bank" item="i"}
+                <option value="{$i.id}">{$i.name}</option>
+                {/foreach}
             </select>
         </div>
+        <div class="form-group">
+            <input type="hidden" name="state" value="0" class="form-control" id="state">
+        </div>
         <div class="btn-group pull-right">
-            <a href="{:url('user/index')}" class="btn btn-danger">
+            <a href="{:url('order/index')}" class="btn btn-danger">
                 <span class="fa fa-undo"></span> 取消
             </a>
-            <a href="javascript:;" data-id="" data-url="{:url('shop/add')}" data-redirect="{:url('user/index')}" data-form="addUser" class="btn btn-success btn-add">
+            <a href="javascript:;" data-url="{:url('order/add')}" data-redirect="{:url('examine/index')}" data-form="addOrder" class="btn btn-success btn-add">
                 <span class="fa fa-thumbs-up"></span> 确认
             </a>
         </div>

@@ -280,4 +280,38 @@ $(function () {
         var content = $(this).find('option[value=' + val + ']').html();
         $(this).next('.form-select-content').val(content);
     })
+});/*
+ * ================================================================
+ * 审核不通过
+ * ================================================================
+ */
+$(function () {
+    $('body').on('click', '.btn-examine-fail', function (e) {
+        var $this    = $(this),
+            id       = $this.attr('data-id'),
+            url      = $this.attr('data-url'),
+            form     = $this.attr('data-form'),
+            redirect = $this.attr('data-redirect'),
+            formData = $('#' + form).serialize();
+        formData += ('&id=' + id);
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            data: formData,
+            success: function (res) {
+                if (res.success === '1') {
+                    $.toast({
+                        type: 'success',
+                        message: res.message
+                    });
+                    window.location.href = redirect;
+                } else {
+                    $.toast({
+                        type: 'error',
+                        message: res.message
+                    });
+                }
+            }
+        });
+    })
 });

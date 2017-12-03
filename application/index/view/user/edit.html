@@ -10,10 +10,10 @@
         </div>
         <div class="form-group">
             <label for="type">用户类型</label>
-            <select class="form-control" name="type" id="type">
-                <option value="0" selected="{eq name="$data.type" value="1"}selected{/eq}">超级管理员</option>
-                <option value="1" selected="{eq name="$data.type" value="2"}selected{/eq}">银行审批员</option>
-                <option value="2" selected="{eq name="$data.type" value="3"}selected{/eq}">4S店管理员</option>
+            <select class="form-control" name="type" id="type" autocomplete="off">
+                <option value="0" {eq name="$data.type" value="0"}selected='selected'{/eq}">超级管理员</option>
+                <option value="1" {eq name="$data.type" value="1"}selected='selected'{/eq}">银行审批员</option>
+                <option value="2" {eq name="$data.type" value="2"}selected='selected'{/eq}">4S店管理员</option>
             </select>
         </div>
         <div class="form-group">
