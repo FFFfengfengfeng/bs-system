@@ -29,9 +29,23 @@
                     {/switch}
                 </td>
                 <td class="td-operation text-center">
-                    <a href="{:url('examine/examine', ['order_id' => $i['id']])}" class="btn btn-default">
-                        <span class="fa fa-search-plus"></span> 点击审核
-                    </a>
+                    {switch name="$i.state"}
+                        {case value="0"}
+                            <a href="{:url('examine/examine', ['order_id' => $i['id']])}" class="btn btn-default">
+                                <span class="fa fa-search-plus"></span> 点击审核
+                            </a>
+                        {/case}
+                        {case value="1"}
+                            <a href="{:url('send/index')}" class="btn btn-default">
+                                订单已通过
+                            </a>
+                        {/case}
+                        {case value="2"}
+                            <a href="javascript:;" class="btn btn-default">
+                                订单不通过
+                            </a>
+                        {/case}
+                    {/switch}
                 </td>
             </tr>
         {/foreach}

@@ -62,4 +62,22 @@ class Examine extends Base
 
         return json(array("success" => $success, "message" => $message));
     }
+    public function pass() {
+        $id = $_REQUEST['id'];
+
+        $data = Db::table('order') -> where('id', '=', $id) -> select()[0];
+
+        $data["state"] = "1";
+
+        $result = Db::table('order') -> where('id', '=', $id) -> update($data);
+
+        $success = "0";
+        $message = "修改失败";
+        if ($result == 1) {
+            $success = "1";
+            $message = "修改成功";
+        }
+
+        return json(array("success" => $success, "message" => $message));
+    }
 }

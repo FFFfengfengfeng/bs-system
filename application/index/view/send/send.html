@@ -56,10 +56,10 @@
             <input type="hidden" name="state" value="0" class="form-control" id="state">
         </div>
         <div class="btn-group pull-right">
-            <a href="javascript:;" data-id="{$data.id}" data-url="{:url('examine/fail')}" data-redirect="{:url('examine/index')}" data-form="addSend" class="btn btn-danger btn-examine-fail">
+            <a href="javascript:;" data-id="{$data.id}" data-url="{:url('send/fail')}" data-redirect="{:url('send/index')}" data-form="addSend" class="btn btn-danger btn-examine-fail">
                 <span class="fa fa-window-close-o"></span> 审核不通过
             </a>
-            <a href="javascript:;" data-id="{$data.id}" data-url="{:url('examine/pass')}" data-redirect="{:url('meet/index')}" data-form="addSend" class="btn btn-success btn-examine-pass">
+            <a href="javascript:;" data-id="{$data.id}" data-url="{:url('send/pass')}" data-redirect="{:url('meet/index')}" data-form="addSend" class="btn btn-success btn-examine-pass">
                 <span class="fa fa-check-square-o"></span> 审核通过
             </a>
         </div>
