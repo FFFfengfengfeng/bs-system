@@ -71,9 +71,25 @@ class Examine extends Base
 
         $result = Db::table('order') -> where('id', '=', $id) -> update($data);
 
+        $car = [
+            "modal"           => $data["modal"],
+            "car_code"        => $data["car_code"],
+            "car_num"         => $data["car_num"],
+            "car_price"       => $data["car_price"],
+            "create_time"     => $data["create_time"],
+            "shop_name"       => $data["shop_name"],
+            "shop_id"         => $data["shop_id"],
+            "regulatory_name" => $data["regulatory_name"],
+            "regulatory_id"   => $data["regulatory_id"],
+            "bank_id"         => $data["bank_id"],
+            "bank_name"       => $data["bank_name"],
+        ];
+
+        $add_car = Db::table('car') -> insert($car);
+
         $success = "0";
         $message = "修改失败";
-        if ($result == 1) {
+        if ($result == 1 and $add_car == 1) {
             $success = "1";
             $message = "修改成功";
         }
