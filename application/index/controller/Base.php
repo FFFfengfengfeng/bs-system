@@ -12,13 +12,13 @@ use think\Cookie;
 
 class Base extends Controller
 {
-//    public function _initialize()
-//    {
-//        $uid = Cookie::get("uid");
-//
-//        if (!isset($uid)) {
-//            $this -> error('请登录', url('Login/index'), 3);
-//        }
-//        return json($_COOKIE);
-//    }
+    public function _initialize()
+    {
+        $uid = Cookie::get("uid");
+
+        if (!isset($uid)) {
+            $this -> error('请登录', url('Login/index'), 3);
+        }
+        return json($_COOKIE);
+    }
 }
