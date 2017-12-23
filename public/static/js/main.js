@@ -180,7 +180,7 @@ $(function () {
                         type: 'success',
                         message: res.message
                     });
-                    $('.tr-content[data-id=' + res.id + ']').remove();
+                    window.location.reload();
                 } else {
                     $.toast({
                         type: 'error',

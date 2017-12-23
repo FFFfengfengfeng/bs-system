@@ -71,6 +71,24 @@ class Shop extends Base
 
         return json($json);
     }
+    public function delete()
+    {
+        $id = $_REQUEST["id"];
+
+        $result = Db::table("shop") -> where("id", "=", $id) -> delete();
+
+        $success = "0";
+        $message = "删除失败";
+        if ($result == 1) {
+            $success = "1";
+            $message = "删除成功";
+        }
+
+        return json([
+            "success" => $success,
+            "message" => $message
+        ]);
+    }
     public function car_index()
     {
 

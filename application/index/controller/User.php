@@ -48,7 +48,6 @@ class User extends Base
     }
     public function add()
     {
-
         if (empty($_REQUEST)) {
 //            return json(array("data" => empty($_REQUEST)));
             return $this -> fetch('add');
@@ -56,7 +55,6 @@ class User extends Base
 
             $success = "0";
             $message = "添加失败";
-
             $data = Db::table('user') -> insert($_REQUEST);
             if ($data == 1) {
                 $success = "1";

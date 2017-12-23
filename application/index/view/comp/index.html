@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+    <div class="panel-heading text-right">
+        <span class="pull-left panel-title">用户管理</span>
+        <a href="{:url('comp/add')}" class="btn btn-default">
+            <span class="fa fa-plus-square"></span> 添加
+        </a>
+    </div>
+    <table class="table table-bordered">
+        <thead class="bg-default">
+        <tr>
+            <td>id</td>
+            <td>名字</td>
+            <td>创建时间</td>
+            <td>地址</td>
+            <td>电话</td>
+            <td class="td-operation">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach name="comp" item="i"}
+            <tr>
+                <td>{$i.id}</td>
+                <td>{$i.name}</td>
+                <td>{$i.time}</td>
+                <td>{$i.addr}</td>
+                <td>{$i.phone}</td>
+                <td>
+                    <a href="javascript:;" data-id="{$i.id}" data-url="{:url('comp/delete')}" class="btn btn-default btn-delete">
+                        <span class="fa fa-trash-o"></span> 删除
+                    </a>
+                    <a href="{:url('comp/edit', ['id' => $i['id']])}" class="btn btn-default">
+                        <span class="fa fa-pencil"></span> 修改
+                    </a>
+                </td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</div>

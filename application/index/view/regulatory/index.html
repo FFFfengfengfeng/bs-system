@@ -23,11 +23,7 @@
             <td>{$i.name}</td>
             <td>{$i.phone}</td>
             <td>{$i.address}</td>
-            <td class="text-center td-operation">
-                <a href="" class="btn btn-default">
-                    <span class="fa fa-file-text-o"></span> {$i.business_num}项
-                </a>
-            </td>
+            <td class="text-center td-operation">{$i.business_num}项</td>
             <td class="text-center td-operation">
                 <a href="javascript:;" data-id="{$i.id}" data-url="{:url('regulatory/delete', ['id' => $i.id])}" class="btn btn-default btn-delete">
                     <span class="fa fa-trash-o"></span> 删除
