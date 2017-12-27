@@ -103,6 +103,7 @@ a:visited{
 .main-body{
     padding-left: 200px;
     transition: all .25s;
+    height: 100%;
 }
 .main-body .container-fluid{
     height: 100%;
@@ -115,6 +116,7 @@ a:visited{
     padding-top: 70px;
     height: 100%;
     box-sizing: border-box;
+    overflow: auto;
 }
 .main-content .panel-title{
     line-height: 34px;

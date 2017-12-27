@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-23 18:17:48
+Date: 2017-12-27 22:00:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,8 +21,8 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -37,11 +37,11 @@ INSERT INTO `admin` VALUES ('1', 'admin', '123456');
 DROP TABLE IF EXISTS `bank`;
 CREATE TABLE `bank` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `admin_name` varchar(255) NOT NULL,
-  `admin_id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `admin_name` varchar(255) DEFAULT NULL,
+  `admin_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
@@ -59,20 +59,20 @@ INSERT INTO `bank` VALUES ('6', '广发银行', '95508', '广州海珠', '何晓
 DROP TABLE IF EXISTS `car`;
 CREATE TABLE `car` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `modal` varchar(255) NOT NULL,
-  `car_code` varchar(255) NOT NULL,
-  `car_num` int(11) NOT NULL,
-  `car_price` decimal(10,0) NOT NULL,
-  `create_time` datetime NOT NULL,
-  `state` varchar(255) NOT NULL,
-  `shop_name` varchar(255) NOT NULL,
-  `shop_id` int(11) NOT NULL,
-  `regulatory_name` varchar(255) NOT NULL,
-  `regulatory_id` int(11) NOT NULL,
-  `bank_id` int(11) NOT NULL,
-  `bank_name` varchar(255) NOT NULL,
+  `modal` varchar(255) DEFAULT NULL,
+  `car_code` varchar(255) DEFAULT NULL,
+  `car_num` int(11) DEFAULT NULL,
+  `car_price` decimal(10,0) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `shop_name` varchar(255) DEFAULT NULL,
+  `shop_id` int(11) DEFAULT NULL,
+  `regulatory_name` varchar(255) DEFAULT NULL,
+  `regulatory_id` int(11) DEFAULT NULL,
+  `bank_id` int(11) DEFAULT NULL,
+  `bank_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of car
@@ -111,19 +111,19 @@ INSERT INTO `company` VALUES ('6', '飞越销售有限公司', '2017-12-23 18:16
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `car_code` varchar(255) NOT NULL,
-  `modal` varchar(255) NOT NULL,
-  `car_num` int(11) NOT NULL,
-  `car_price` decimal(10,0) NOT NULL,
-  `car_total` varchar(255) NOT NULL,
+  `car_code` varchar(255) DEFAULT NULL,
+  `modal` varchar(255) DEFAULT NULL,
+  `car_num` int(11) DEFAULT NULL,
+  `car_price` decimal(10,0) DEFAULT NULL,
+  `car_total` varchar(255) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
-  `create_time` varchar(255) NOT NULL,
-  `shop_id` int(11) NOT NULL,
-  `regulatory_id` int(11) NOT NULL,
-  `bank_id` int(11) NOT NULL,
-  `state` varchar(255) NOT NULL,
-  `shop_name` varchar(255) NOT NULL,
-  `bank_name` varchar(255) NOT NULL,
+  `create_time` varchar(255) DEFAULT NULL,
+  `shop_id` int(11) DEFAULT NULL,
+  `regulatory_id` int(11) DEFAULT NULL,
+  `bank_id` int(11) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `shop_name` varchar(255) DEFAULT NULL,
+  `bank_name` varchar(255) DEFAULT NULL,
   `regulatory_name` varchar(255) NOT NULL,
   `send_state` varchar(255) NOT NULL,
   `apply_state` varchar(255) NOT NULL,
@@ -144,12 +144,12 @@ INSERT INTO `order` VALUES ('9', 'AB00201011', 'GLC', '10', '50', '500', '50辆G
 DROP TABLE IF EXISTS `regulatory`;
 CREATE TABLE `regulatory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `business_num` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `business_num` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of regulatory
@@ -164,10 +164,10 @@ INSERT INTO `regulatory` VALUES ('4', '快捷第三方监管有限公司', '8481
 DROP TABLE IF EXISTS `shop`;
 CREATE TABLE `shop` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `shop_name` varchar(255) NOT NULL,
-  `shop_phone` varchar(255) NOT NULL,
-  `shop_address` varchar(255) NOT NULL,
-  `charge` varchar(255) NOT NULL,
+  `shop_name` varchar(255) DEFAULT NULL,
+  `shop_phone` varchar(255) DEFAULT NULL,
+  `shop_address` varchar(255) DEFAULT NULL,
+  `charge` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
@@ -184,11 +184,11 @@ INSERT INTO `shop` VALUES ('3', '广州中升奔驰店', '020-84812345', '广州
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` int(11) NOT NULL,
-  `login_name` varchar(255) NOT NULL,
-  `user_name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
+  `type` int(11) DEFAULT NULL,
+  `login_name` varchar(255) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 

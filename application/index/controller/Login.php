@@ -20,8 +20,8 @@ class Login extends Controller
     }
     public function login()
     {
-        $map['name'] = $_POST["user_name"];
-        $result = Db::table("admin") -> where($map) -> select();
+        $map['login_name'] = $_POST["user_name"];
+        $result = Db::table("user") -> where($map) -> select();
         $success = "0";
         $message = "获取失败";
         $data = null;
